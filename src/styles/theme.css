@@ -1,0 +1,267 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* Modern IT Admin Light Mode - Clean with tech aesthetic */
+  --background: #f8f9fa; /* Soft light gray background */
+  --foreground: #1a1d23;
+  --card: #ffffff;
+  --card-foreground: #1a1d23;
+  --popover: #ffffff;
+  --popover-foreground: #1a1d23;
+  
+  /* Primary - Modern tech blue */
+  --primary: #0066ff;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary - Neutral gray */
+  --secondary: #6b7280;
+  --secondary-foreground: #ffffff;
+  
+  /* Muted - Subtle backgrounds */
+  --muted: #f1f3f5;
+  --muted-foreground: #6b7280;
+  
+  /* Accent - Vibrant cyan */
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  
+  /* Destructive - Modern red */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Success - Tech green */
+  --success: #10b981;
+  --success-foreground: #ffffff;
+  
+  /* Warning - Amber */
+  --warning: #f59e0b;
+  --warning-foreground: #1a1d23;
+  
+  /* Info - Sky blue */
+  --info: #06b6d4;
+  --info-foreground: #ffffff;
+  
+  /* Borders */
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --input-background: #ffffff;
+  --switch-background: #d1d5db;
+  
+  /* Focus ring */
+  --ring: #0066ff;
+  
+  /* Chart colors */
+  --chart-1: #0066ff;
+  --chart-2: #10b981;
+  --chart-3: #ef4444;
+  --chart-4: #f59e0b;
+  --chart-5: #8b5cf6;
+  
+  /* Radius - Subtle rounded */
+  --radius: 6px;
+  
+  /* Font weights */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-normal: 400;
+  
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1d23;
+  --sidebar-primary: #0066ff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f3f5;
+  --sidebar-accent-foreground: #1a1d23;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #0066ff;
+}
+
+.dark {
+  /* Dark Mode - Cyberpunk IT aesthetic with dark blues and cyans */
+  --background: #0a0e1a; /* Deep dark blue-black */
+  --foreground: #e2e8f0; /* Soft white */
+  --card: #111827; /* Dark card background */
+  --card-foreground: #e2e8f0;
+  --popover: #111827;
+  --popover-foreground: #e2e8f0;
+  
+  /* Primary - Electric cyan */
+  --primary: #22d3ee;
+  --primary-foreground: #0a0e1a;
+  
+  /* Secondary - Dark slate */
+  --secondary: #1e293b;
+  --secondary-foreground: #94a3b8;
+  
+  /* Muted */
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  
+  /* Accent - Neon green (terminal nostalgia) */
+  --accent: #3dd68c;
+  --accent-foreground: #0a0e1a;
+  
+  /* Destructive - Hot pink/red */
+  --destructive: #f43f5e;
+  --destructive-foreground: #ffffff;
+  
+  /* Success - Matrix green */
+  --success: #3dd68c;
+  --success-foreground: #0a0e1a;
+  
+  /* Warning - Electric yellow */
+  --warning: #fbbf24;
+  --warning-foreground: #0a0e1a;
+  
+  /* Info - Bright cyan */
+  --info: #22d3ee;
+  --info-foreground: #0a0e1a;
+  
+  /* Borders */
+  --border: #1e293b;
+  --input: #1e293b;
+  --input-background: #0f172a;
+  --switch-background: #1e293b;
+  
+  /* Focus ring */
+  --ring: #22d3ee;
+  
+  /* Chart colors - Cyberpunk palette */
+  --chart-1: #22d3ee;
+  --chart-2: #3dd68c;
+  --chart-3: #f43f5e;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
+  
+  /* Sidebar */
+  --sidebar: #111827;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #22d3ee;
+  --sidebar-primary-foreground: #0a0e1a;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: #1e293b;
+  --sidebar-ring: #22d3ee;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius));
+  --radius-md: calc(var(--radius));
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius));
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', 'Consolas', monospace;
+  }
+  
+  /* Data tables and code blocks use monospace */
+  table, pre {
+    font-family: 'JetBrains Mono', 'Courier New', 'Consolas', monospace;
+  }
+}
