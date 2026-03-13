@@ -27,15 +27,18 @@ import {
   Area,
   BarChart,
   Bar,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
 } from "recharts";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  type ChartConfig,
+} from "../../components/ui/chart";
 
 const cpuData = [
   { time: "00:00", usage: 45 },
@@ -72,6 +75,24 @@ const serverStatus = [
   { name: "API-PROD-01", status: "online", cpu: 38, memory: 44, uptime: "99.99%" },
   { name: "CACHE-01", status: "offline", cpu: 0, memory: 0, uptime: "0.00%" },
 ];
+
+const cpuChartConfig = {
+  usage: {
+    label: "CPU Usage",
+    color: "var(--chart-1)",
+  },
+} satisfies ChartConfig;
+
+const networkChartConfig = {
+  inbound: {
+    label: "Inbound",
+    color: "var(--chart-1)",
+  },
+  outbound: {
+    label: "Outbound",
+    color: "var(--chart-2)",
+  },
+} satisfies ChartConfig;
 
 export function DashboardExample() {
   return (
@@ -137,38 +158,35 @@ export function DashboardExample() {
               Average across all servers
             </p>
           </div>
-          <ResponsiveContainer width="100%" height={250}>
-            <AreaChart data={cpuData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+          <ChartContainer config={cpuChartConfig} className="h-[250px] w-full">
+            <AreaChart data={cpuData} accessibilityLayer>
+              <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="time"
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
                 tickLine={false}
+                axisLine={false}
+                tickMargin={8}
               />
               <YAxis
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
                 tickLine={false}
+                axisLine={false}
+                tickMargin={8}
                 tickFormatter={(value) => `${value}%`}
               />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "hsl(var(--popover))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: "6px",
-                }}
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent indicator="line" />}
               />
               <Area
                 type="monotone"
                 dataKey="usage"
-                stroke="hsl(var(--primary))"
-                fill="hsl(var(--primary))"
+                fill="var(--color-usage)"
                 fillOpacity={0.2}
+                stroke="var(--color-usage)"
                 strokeWidth={2}
               />
             </AreaChart>
-          </ResponsiveContainer>
+          </ChartContainer>
         </Card>
 
         {/* Network Traffic Chart */}
@@ -177,32 +195,28 @@ export function DashboardExample() {
             <h3 className="mb-1">Network Traffic (24h)</h3>
             <p className="text-sm text-muted-foreground">MB/s inbound and outbound</p>
           </div>
-          <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={networkData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+          <ChartContainer config={networkChartConfig} className="h-[250px] w-full">
+            <BarChart data={networkData} accessibilityLayer>
+              <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="time"
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
                 tickLine={false}
+                axisLine={false}
+                tickMargin={8}
               />
               <YAxis
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
                 tickLine={false}
+                axisLine={false}
+                tickMargin={8}
               />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "hsl(var(--popover))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: "6px",
-                }}
+              <ChartTooltip
+                content={<ChartTooltipContent />}
               />
-              <Legend />
-              <Bar dataKey="inbound" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="outbound" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+              <ChartLegend content={<ChartLegendContent />} />
+              <Bar dataKey="inbound" fill="var(--color-inbound)" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="outbound" fill="var(--color-outbound)" radius={[4, 4, 0, 0]} />
             </BarChart>
-          </ResponsiveContainer>
+          </ChartContainer>
         </Card>
       </div>
 
